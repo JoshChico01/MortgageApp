@@ -4,8 +4,6 @@ import pandas as pd
 
 def run(interest, loan_amount, repayment_fortnightly):
     interest_rate = interest / 100
-#loan_amount = 305000
-#repayment_fortnightly = 852
 
     interest_rate_daily = interest_rate / 365
 
@@ -21,10 +19,6 @@ def run(interest, loan_amount, repayment_fortnightly):
     while loan_amount > 0 and not increasing:
         if days % 14 == 0:
             loan_amount -= repayment_fortnightly
-
-        #if days == 200: loan_amount -= 10000
-
-        #if days == 250: loan_amount -= 5000
 
         loan_amount += interest_rate_daily * loan_amount
 
@@ -56,11 +50,11 @@ def run(interest, loan_amount, repayment_fortnightly):
 with st.sidebar:
     st.write("# Settings")
 
-    interest = st.number_input("Interest Rate", value = 6.09, step = 0.05)
+    interest = st.number_input("Interest Rate", value = 6.00, step = 0.05)
 
-    loan_amount = st.number_input("Loan Amount", step = 1, value = 305000)
+    loan_amount = st.number_input("Loan Amount", step = 500, value = 500000)
 
-    repayment_fortnightly = st.number_input("Fortnightly Repayments", step = 50, value = 900)
+    repayment_fortnightly = st.number_input("Fortnightly Repayments", step = 50, value = 1500)
 
     st.button("Run", on_click=run, args = (interest, loan_amount, repayment_fortnightly) )
 
