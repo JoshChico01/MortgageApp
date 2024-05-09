@@ -54,9 +54,9 @@ def run(interest, loan_amount, repayment_fortnightly):
                  Mortgage amount at the end of each year""")
         st.bar_chart(df, x = "Years")
         st.write(f"""
-                 Loan Amount: {start_loan}\n
-                 Total Repayments: {total_repayments}\n
-                 Interest Paid: {total_repayments - loan_amount}
+                 Loan Amount: {format(start_loan,"###,###")}\n
+                 Total Repayments: {format(round(total_repayments),"###,###")}\n
+                 Interest Paid: {format(round(total_repayments - loan_amount), "###,###")}
 """)
 
 
