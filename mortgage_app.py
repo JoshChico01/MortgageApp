@@ -16,9 +16,13 @@ def run(interest, loan_amount, repayment_fortnightly):
     interest_add = 0
     increasing = False
 
+    total_repayments = 0
+
     while loan_amount > 0 and not increasing:
         if days % 14 == 0:
             loan_amount -= repayment_fortnightly
+
+            total_repayments += repayment_fortnightly
 
         loan_amount += interest_rate_daily * loan_amount
 
@@ -36,6 +40,8 @@ def run(interest, loan_amount, repayment_fortnightly):
 
             year += 1
 
+    total_repayments += loan_amount
+
     df = pd.DataFrame(track)
 
 
@@ -45,6 +51,9 @@ def run(interest, loan_amount, repayment_fortnightly):
         st.write("""# Mortgage Projection
                  Mortgage amount at the end of each year""")
         st.bar_chart(df, x = "Years")
+        st.write(f"""Loan Amount: {loan_amount}
+                 Total Repayments: {total_repayments}
+                 Interest Paid: {total_repayments - loan_amount}""")
 
 
 with st.sidebar:
