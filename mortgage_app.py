@@ -60,6 +60,8 @@ def run(interest, loan_amount, repayment_fortnightly):
 """)
 
 
+st.write("#Mortgage Calculator\nOpen side and click run")
+
 with st.sidebar:
     st.write("# Settings")
 
