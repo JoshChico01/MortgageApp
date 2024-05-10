@@ -60,7 +60,7 @@ def run(interest, loan_amount, repayment_fortnightly):
 """)
 
 
-st.write("Open side and click run")
+st.write("Open sidebar and click run")
 
 with st.sidebar:
     st.write("# Settings")
