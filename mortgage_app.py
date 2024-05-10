@@ -56,7 +56,7 @@ def run(interest, loan_amount, repayment_fortnightly):
         st.write(f"""
                  Loan Amount: {start_loan:,}\n
                  Total Repayments: {round(total_repayments):,}\n
-                 Interest Paid: {round(total_repayments - loan_amount):,}
+                 Interest Paid: {round(total_repayments - start_loan):,}
 """)
 
 
